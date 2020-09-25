@@ -1,0 +1,15 @@
+package com.atguigu.memento.theory;
+
+public class Memento {
+	private String state;
+
+	//构造器 将state放到属性中去
+	public Memento(String state) {
+		super();
+		this.state = state;
+	}
+
+	public String getState() {
+		return state;
+	}
+}
