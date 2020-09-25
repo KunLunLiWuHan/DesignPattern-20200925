@@ -2,7 +2,7 @@ package com.atguigu.singleton.type6;
 
 public class SingletonTest06 {
 	public static void main(String[] args) {
-		System.out.println("Ë«ÖØ¼ì²é");
+		System.out.println("åŒé‡æ£€æŸ¥");
 		Singleton instance = Singleton.getInstance();
 		Singleton instance2 = Singleton.getInstance();
 		System.out.println(instance == instance2); // true
@@ -11,21 +11,21 @@ public class SingletonTest06 {
 	}
 }
 
-// ÀÁººÊ½(Ïß³Ì°²È«£¬Í¬²½·½·¨)
+// æ‡’æ±‰å¼(çº¿ç¨‹å®‰å…¨ï¼ŒåŒæ­¥æ–¹æ³•)
 class Singleton {
 	private static volatile Singleton instance;
 
 	private Singleton() {
 	}
-	//Ìá¹©Ò»¸ö¾²Ì¬µÄ¹«ÓĞ·½·¨£¬¼ÓÈëË«ÖØ¼ì²é´úÂë£¬½â¾öÏß³Ì°²È«ÎÊÌâ, Í¬Ê±½â¾öÀÁ¼ÓÔØÎÊÌâ
-	//Í¬Ê±±£Ö¤ÁËĞ§ÂÊ, ÍÆ¼öÊ¹ÓÃ
-	public static synchronized Singleton getInstance() {
+	//æä¾›ä¸€ä¸ªé™æ€çš„å…¬æœ‰æ–¹æ³•ï¼ŒåŠ å…¥åŒé‡æ£€æŸ¥ä»£ç ï¼Œè§£å†³çº¿ç¨‹å®‰å…¨é—®é¢˜, åŒæ—¶è§£å†³æ‡’åŠ è½½é—®é¢˜
+	//åŒæ—¶ä¿è¯äº†æ•ˆç‡, æ¨èä½¿ç”¨
+	public static Singleton getInstance() {
 		if (instance == null) {
 			/**
-			 * ¼ÙÉèa,bÍ¬Ê±Í¨¹ıif (instance == null) ½øÈëÏÂÃæµÄ¾²Ì¬´úÂë¿é£¬¼ÙÉè½ø³ÌaÏÈ»ñÈ¡
-			 * Ëø£¬´ËÊ±bµÈ´ı£»µ±a´´½¨¶ÔÏóÍê³ÉÖ®ºó£¬ÊÍ·ÅËø£¬b½øÈë£¬µ«ÊÇ½øÈëºó·¢ÏÖif (instance £¡= null)
-			 * ¾ÍºÜ¿ìÍË³ö¡£
-			 * ÔÚ´óif()Ö®ÍâµÄ´úÂë´ËÊ±²»»á·ûºÏÌõ¼ş£¬Ö±½Ó·µ»Øinstance¡£
+			 * å‡è®¾a,båŒæ—¶é€šè¿‡if (instance == null) è¿›å…¥ä¸‹é¢çš„é™æ€ä»£ç å—ï¼Œå‡è®¾è¿›ç¨‹aå…ˆè·å–
+			 * é”ï¼Œæ­¤æ—¶bç­‰å¾…ï¼›å½“aåˆ›å»ºå¯¹è±¡å®Œæˆä¹‹åï¼Œé‡Šæ”¾é”ï¼Œbè¿›å…¥ï¼Œä½†æ˜¯è¿›å…¥åå‘ç°if (instance ï¼= null)
+			 * å°±å¾ˆå¿«é€€å‡ºã€‚
+			 * åœ¨å¤§if()ä¹‹å¤–çš„ä»£ç æ­¤æ—¶ä¸ä¼šç¬¦åˆæ¡ä»¶ï¼Œç›´æ¥è¿”å›instanceã€‚
 			 */
 			synchronized (Singleton.class) {
 				if (instance == null) {
